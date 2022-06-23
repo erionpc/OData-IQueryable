@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OData-IQ-API", "OData-IQ-API\OData-IQ-API.csproj", "{81384239-6805-40FE-A7EF-41ECAA5C1371}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81384239-6805-40FE-A7EF-41ECAA5C1371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81384239-6805-40FE-A7EF-41ECAA5C1371}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81384239-6805-40FE-A7EF-41ECAA5C1371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81384239-6805-40FE-A7EF-41ECAA5C1371}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B9F92AB-61D3-4FC2-9F5E-31ED6B0BA3F6}
+	EndGlobalSection
+EndGlobal
