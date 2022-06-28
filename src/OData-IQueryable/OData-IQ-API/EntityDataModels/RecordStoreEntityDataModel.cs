@@ -1,5 +1,6 @@
 ﻿using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
+using OData_IQ_API.DTOs;
 using OData_IQ_API.Entities;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,9 @@ namespace OData_IQ_API.EntityDataModels
             builder.Namespace = "RecordStore";
             builder.ContainerName = "RecordStoreContainer";
 
-            builder.EntitySet<Person>("People");
-            builder.EntitySet<RecordStore>("RecordStores");
-            builder.EntitySet<MusicRecord>("MusicRecords");
+            builder.EntitySet<PersonDto>("People");
+            builder.EntitySet<RecordStoreDto>("RecordStores");
+            builder.EntitySet<MusicRecordDto>("MusicRecords");
 
             return builder.GetEdmModel();
         }

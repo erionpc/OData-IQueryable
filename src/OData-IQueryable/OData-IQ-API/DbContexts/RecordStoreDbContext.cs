@@ -345,6 +345,46 @@ namespace OData_IQ_API.DbContexts
                     RatedByPersonId = 3,
                     Value = 5,
                     RatedDate = new DateTime(2022, 1, 1)
+                },
+                new Rating()
+                {
+                    Id = 8,
+                    RecordStoreId = 1,
+                    RatedByPersonId = 1,
+                    Value = 5,
+                    RatedDate = new DateTime(2022, 1, 1)
+                },
+                new Rating()
+                {
+                    Id = 9,
+                    RecordStoreId = 1,
+                    RatedByPersonId = 2,
+                    Value = 5,
+                    RatedDate = new DateTime(2022, 1, 1)
+                },
+                new Rating()
+                {
+                    Id = 10,
+                    RecordStoreId = 1,
+                    RatedByPersonId = 3,
+                    Value = 4,
+                    RatedDate = new DateTime(2022, 1, 1)
+                },
+                new Rating()
+                {
+                    Id = 11,
+                    RecordStoreId = 2,
+                    RatedByPersonId = 1,
+                    Value = 4,
+                    RatedDate = new DateTime(2022, 1, 1)
+                },
+                new Rating()
+                {
+                    Id = 12,
+                    RecordStoreId = 2,
+                    RatedByPersonId = 2,
+                    Value = 5,
+                    RatedDate = new DateTime(2022, 1, 1)
                 });
             #endregion
 

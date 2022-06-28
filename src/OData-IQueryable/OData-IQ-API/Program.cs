@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.OData;
 using Microsoft.AspNetCore.OData.Batch;
 using Microsoft.EntityFrameworkCore;
+using OData_IQ_API.Abstractions.Data;
 using OData_IQ_API.DbContexts;
 using OData_IQ_API.EntityDataModels;
+using OData_IQ_API.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +33,8 @@ builder.Services.AddDbContext<RecordStoreDbContext>(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IPeopleRepository, PeopleRepository>();
 
 var app = builder.Build();
 

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OData_IQ_API.DbContexts;
 
@@ -11,9 +12,10 @@ using OData_IQ_API.DbContexts;
 namespace OData_IQ_API.Migrations
 {
     [DbContext(typeof(RecordStoreDbContext))]
-    partial class RecordStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220623220612_RecordStoreIdInRating")]
+    partial class RecordStoreIdInRating
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

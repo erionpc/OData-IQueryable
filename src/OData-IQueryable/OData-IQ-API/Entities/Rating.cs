@@ -17,9 +17,12 @@ namespace OData_IQ_API.Entities
 
         public DateTime RatedDate { get; set; }
 
-        [Required]
-        public int MusicRecordId { get; set; }
+        public int? MusicRecordId { get; set; }
 
         public MusicRecord? Record { get; set; }
+
+        public int? RecordStoreId { get; set; }
+
+        public RecordStore? Store { get; set; }
     }
 }
