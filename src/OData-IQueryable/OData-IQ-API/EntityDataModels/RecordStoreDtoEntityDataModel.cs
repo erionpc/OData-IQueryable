@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace OData_IQ_API.EntityDataModels
 {
-    public class RecordStoreEntityDataModel
+    public class RecordStoreDtoEntityDataModel
     {
         public IEdmModel GetEntityDataModel()
         {
@@ -20,12 +20,12 @@ namespace OData_IQ_API.EntityDataModels
                 ContainerName = "RecordStoreContainer"
             };
 
-            builder.EntitySet<Person>("People");
-            builder.EntitySet<RecordStore>("RecordStores");
-            builder.EntitySet<MusicRecord>("MusicRecords");
+            builder.EntitySet<PersonDto>("People");
+            builder.EntitySet<RecordStoreDto>("RecordStores");
+            builder.EntitySet<MusicRecordDto>("MusicRecords");
 
             var getEnumerablePeople = builder.Function("EnumerablePeople");
-            getEnumerablePeople.ReturnsCollectionFromEntitySet<Person>("People");
+            getEnumerablePeople.ReturnsCollectionFromEntitySet<PersonDto>("People");
             getEnumerablePeople.Namespace = "RecordStore.Functions";
 
             return builder.GetEdmModel();

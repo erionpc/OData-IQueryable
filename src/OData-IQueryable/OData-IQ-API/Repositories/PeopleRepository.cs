@@ -2,6 +2,7 @@
 using OData_IQ_API.Abstractions.Data;
 using OData_IQ_API.DbContexts;
 using OData_IQ_API.DTOs;
+using OData_IQ_API.DTOs.Requests;
 using OData_IQ_API.Entities;
 using System;
 using System.Collections.Generic;
@@ -17,24 +18,37 @@ namespace OData_IQ_API.Repositories
         {
         }
 
-        public IQueryable<PersonDto> Query2() =>
+        public Task<List<PersonDto>> GetAll(PeopleSearchRequestDto searchCriteria)
+        {
+            return DataContext.People!
+                .Where(x =>
+                    searchCriteria.Id.HasValue ? x.Id == searchCriteria.Id : true &&
+                    searchCriteria.Email != null ? x.Email!.Equals(searchCriteria.Email, StringComparison.InvariantCultureIgnoreCase) : true &&
+                    searchCriteria.EmailLike != null ? x.Email!.Contains(searchCriteria.EmailLike) : true &&
+                    searchCriteria.Name != null ? x.Name!.Equals(searchCriteria.Name, StringComparison.InvariantCultureIgnoreCase) : true &&
+                    searchCriteria.NameLike != null ? x.Name!.Contains(searchCriteria.NameLike) : true &&
+                    searchCriteria.Surname != null ? x.Surname!.Equals(searchCriteria.Surname, StringComparison.InvariantCultureIgnoreCase) : true &&
+                    searchCriteria.SurnameLike != null ? x.Surname!.Contains(searchCriteria.SurnameLike) : true &&
+                    searchCriteria.DateOfBirth.HasValue ? x.DateOfBirth == searchCriteria.DateOfBirth : true &&
+                    searchCriteria.DateOfBirthBefore.HasValue ? x.DateOfBirth < searchCriteria.DateOfBirthBefore : true &&
+                    searchCriteria.DateOfBirthAfter.HasValue ? x.DateOfBirth > searchCriteria.DateOfBirthAfter : true
+                )
+                .Select(p => p.MapToDto())
+                .ToListAsync();
+        }
+
+        public IQueryable<PersonDto> Query() =>
             DataContext.People!
-            //.Include("Records")
             .Select(p => new PersonDto()
             {
                 Id = p.Id,
                 Email = p.Email,
                 Name = p.Name,
                 Surname = p.Surname,
-                DateOfBirth = p.DateOfBirth,
-                Records = p.Records.Select(r => new PersonMusicRecordDto()
-                {
-                    Id = r.Id,
-                    DateBought = r.DateBought
-                }),
+                DateOfBirth = p.DateOfBirth
             });
 
-        public IQueryable<PersonDto> Query()
+        public IQueryable<PersonDto> Query_expandedMapping()
         {
             IEnumerable<RatingDto> emptyRatings = new List<RatingDto>();
 

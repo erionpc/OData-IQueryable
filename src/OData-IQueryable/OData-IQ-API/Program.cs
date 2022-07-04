@@ -14,13 +14,23 @@ batchHandler.MessageQuotas.MaxOperationsPerChangeset = 10;
 
 builder.Services.AddControllers()
                 .AddOData(opt =>
+                    opt.AddRouteComponents("odata-dto",
+                        new RecordStoreDtoEntityDataModel().GetEntityDataModel(),
+                        batchHandler)
+                    .Select()
+                    .Expand()
+                    .OrderBy()
+                    .SetMaxTop(100)
+                    .Count()
+                    .Filter())
+                .AddOData(opt =>
                     opt.AddRouteComponents("odata",
                         new RecordStoreEntityDataModel().GetEntityDataModel(),
                         batchHandler)
                     .Select()
                     .Expand()
                     .OrderBy()
-                    .SetMaxTop(10)
+                    .SetMaxTop(100)
                     .Count()
                     .Filter());
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.OData.ModelBuilder;
+using OData_IQ_API.DTOs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -31,5 +32,15 @@ namespace OData_IQ_API.Entities
 
         [Contained]
         public ICollection<PersonMusicRecord> Records { get; set; } = new List<PersonMusicRecord>();
+
+        public PersonDto MapToDto() =>
+            new PersonDto()
+            {
+                Id = this.Id,
+                Email = this.Email,
+                Name = this.Name,
+                Surname = this.Surname,
+                DateOfBirth = this.DateOfBirth
+            };
     }
 }
